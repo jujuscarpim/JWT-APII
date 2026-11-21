@@ -1,0 +1,14 @@
+const db=require('../config/db');
+const User=require('../user/user.model');const Category=require('../category/category.model');
+const Author=require('../author/author.model');const Book=require('../book/book.model');
+const Reader=require('../reader/reader.model');const Loan=require('../loan/loan.model');
+const RefreshToken=require('../auth/refreshToken.model');
+Category.hasMany(Book,{foreignKey:'categoryId',onDelete:'RESTRICT'});
+Book.belongsTo(Category,{foreignKey:'categoryId',onDelete:'RESTRICT'});
+Book.belongsToMany(Author,{through:'BookAuthor',foreignKey:'bookId',otherKey:'authorId'});
+Author.belongsToMany(Book,{through:'BookAuthor',foreignKey:'authorId',otherKey:'bookId'});
+Reader.hasMany(Loan,{foreignKey:'readerId',onDelete:'RESTRICT'});Loan.belongsTo(Reader,{foreignKey:'readerId'});
+Book.hasMany(Loan,{foreignKey:'bookId',onDelete:'RESTRICT'});Loan.belongsTo(Book,{foreignKey:'bookId'});
+User.hasMany(Loan,{foreignKey:'userId',onDelete:'RESTRICT'});Loan.belongsTo(User,{foreignKey:'userId'});
+User.hasMany(RefreshToken,{foreignKey:'userId'});RefreshToken.belongsTo(User,{foreignKey:'userId'});
+module.exports={db,User,Category,Author,Book,Reader,Loan,RefreshToken};

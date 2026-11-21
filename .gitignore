@@ -1,0 +1,11 @@
+node_modules/
+.env
+database.sqlite
+database.sqlite-*
+
+.env
+.env.*
+!.envex
+node_modules/
+database.sqlite
+
