@@ -109,3 +109,8 @@ Autenticação e segurança
 
 O front-end usa cookies `httpOnly` para os tokens e executa a renovação automática. Para demonstrar o refresh no vídeo, defina temporariamente `ACCESS_TTL_SECONDS=30` e reinicie a API. Volte a `900` depois da demonstração.
 
+## VÍDEO 
+
+(ACESSAR COM O E-MAIL DA UNIPAR)
+
+https://drive.google.com/file/d/1ytVsfmtexqepicjCvPgBAB0UdowoJdXm/view?usp=sharing
